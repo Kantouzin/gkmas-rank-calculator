@@ -29,7 +29,12 @@
     }
     scoreRankValue = Math.round(scoreRankValue);
 
-    const statusRankValue = Math.floor((voValue + daValue + viValue) * 2.3);
+    const statusRankValue = Math.floor(
+      (Math.min(voValue + 30, 1500) +
+        Math.min(daValue + 30, 1500) +
+        Math.min(viValue + 30, 1500)) *
+        2.3,
+    );
 
     return scoreRankValue + statusRankValue + 1700;
   };

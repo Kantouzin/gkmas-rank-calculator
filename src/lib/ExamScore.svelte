@@ -9,7 +9,12 @@
     daValue = 0,
     viValue = 0,
   ) => {
-    const statusValue = Math.floor((voValue + daValue + viValue) * 2.3);
+    const statusValue = Math.floor(
+      (Math.min(voValue + 30, 1500) +
+        Math.min(daValue + 30, 1500) +
+        Math.min(viValue + 30, 1500)) *
+        2.3,
+    );
     const targetValue = targetRankValue - statusValue - 1700;
 
     let targetScore = 0;
