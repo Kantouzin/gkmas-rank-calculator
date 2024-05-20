@@ -41,6 +41,14 @@
     daValue,
     viValue,
   );
+
+  const clamp = (score) => {
+    if (score < 0) {
+      return 0;
+    }
+    return score;
+  };
+  $: score = clamp(score);
 </script>
 
 <div class="card text-bg-light my-2">

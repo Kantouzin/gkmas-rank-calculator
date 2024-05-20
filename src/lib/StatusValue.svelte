@@ -1,5 +1,19 @@
 <script>
   export let voValue, daValue, viValue;
+
+  const clamp = (value) => {
+    if (value < 0) {
+      return 0;
+    }
+    if (value > 1500) {
+      return 1500;
+    }
+    return value;
+  };
+
+  $: voValue = clamp(voValue);
+  $: daValue = clamp(daValue);
+  $: viValue = clamp(viValue);
 </script>
 
 <div class="card text-bg-light my-2">
