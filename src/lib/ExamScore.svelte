@@ -46,6 +46,9 @@
     if (score < 0) {
       return 0;
     }
+    if (score > 100000) {
+      return 100000;
+    }
     return score;
   };
   $: score = clamp(score);
