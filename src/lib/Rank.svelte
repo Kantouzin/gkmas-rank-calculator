@@ -71,7 +71,7 @@
           disabled
         />
       </div>
-      <div class="col-8 col-md-2">
+      <div class="col-8 col-md-3">
         <label for="result-value" class="form-label">実績評価値</label>
         <input
           type="number"
