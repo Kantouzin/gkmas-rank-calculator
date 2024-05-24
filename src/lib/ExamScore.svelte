@@ -1,4 +1,6 @@
 <script>
+  import Popover from './Popover.svelte';
+
   export let targetRankValue, voValue, daValue, viValue;
   export let score;
   let targetScore;
@@ -55,7 +57,12 @@
 </script>
 
 <div class="card text-bg-light my-2">
-  <div class="card-header">最終試験</div>
+  <div class="card-header">
+    <span>最終試験</span>
+    <Popover
+      text="実績ptが大きい場合、実績評価値の計算結果が合わない場合があります。"
+    />
+  </div>
   <div class="card-body">
     <div class="row">
       <div class="col-8 col-md-3">

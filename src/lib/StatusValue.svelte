@@ -1,4 +1,6 @@
 <script>
+  import Popover from './Popover.svelte';
+
   export let voValue, daValue, viValue;
 
   const clamp = (value) => {
@@ -17,7 +19,10 @@
 </script>
 
 <div class="card text-bg-light my-2">
-  <div class="card-header">パラメータ</div>
+  <div class="card-header">
+    <span>パラメータ</span>
+    <Popover text="最終試験直前のパラメータを入力してください。" />
+  </div>
   <div class="card-body">
     <div class="row">
       <div class="col-8 col-md-3">
