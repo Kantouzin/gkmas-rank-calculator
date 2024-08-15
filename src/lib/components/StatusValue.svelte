@@ -1,21 +1,12 @@
 <script>
+  import { clamp } from '../modules/utils';
   import Popover from './Popover.svelte';
 
   export let voValue, daValue, viValue;
 
-  const clamp = (value) => {
-    if (value < 0) {
-      return 0;
-    }
-    if (value > 1500) {
-      return 1500;
-    }
-    return value;
-  };
-
-  $: voValue = clamp(voValue);
-  $: daValue = clamp(daValue);
-  $: viValue = clamp(viValue);
+  $: voValue = clamp(voValue, 0, 1500);
+  $: daValue = clamp(daValue, 0, 1500);
+  $: viValue = clamp(viValue, 0, 1500);
 </script>
 
 <div class="card text-bg-light my-2">
