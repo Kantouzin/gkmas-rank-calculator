@@ -1,9 +1,9 @@
 <script>
   import 'bootstrap-icons/font/bootstrap-icons.min.css';
   import 'bootstrap/dist/css/bootstrap.min.css';
-  import Footer from './lib/Footer.svelte';
-  import Header from './lib/Header.svelte';
-  import Main from './lib/Main.svelte';
+  import Footer from './lib/components/Footer.svelte';
+  import Header from './lib/components/Header.svelte';
+  import Main from './lib/components/Main.svelte';
 </script>
 
 <svelte:head>

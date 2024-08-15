@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher, onMount } from 'svelte';
-  import ranks from '../json/ranks.json';
+  import ranks from '../../json/ranks.json';
 
   let selectedRank = 'A+';
 
