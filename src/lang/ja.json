@@ -1,0 +1,29 @@
+{
+  "header": {
+    "title": "学マス評価計算機"
+  },
+  "footer": {
+    "author": "Kantouzin"
+  },
+  "target_rank": {
+    "title": "目標評価"
+  },
+  "status_value": {
+    "title": "パラメータ",
+    "description": "最終試験直前のパラメータを入力してください。",
+    "vo": "Vo",
+    "da": "Da",
+    "vi": "Vi"
+  },
+  "exam_score": {
+    "title": "最終試験",
+    "explanation": "実績ptが大きい場合、実績評価値の計算結果が合わない場合があります。",
+    "target_score": "目標pt",
+    "score": "実績pt"
+  },
+  "rank": {
+    "title": "評価",
+    "target_value": "目標評価値",
+    "result_value": "実績評価値"
+  }
+}
