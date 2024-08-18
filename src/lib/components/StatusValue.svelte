@@ -1,4 +1,5 @@
 <script>
+  import { _ } from 'svelte-i18n';
   import { clamp } from '../modules/utils';
   import Popover from './Popover.svelte';
 
@@ -11,13 +12,17 @@
 
 <div class="card text-bg-light my-2">
   <div class="card-header">
-    <span>パラメータ</span>
-    <Popover text="最終試験直前のパラメータを入力してください。" />
+    <span>
+      {$_('status_value.title')}
+    </span>
+    <Popover text={$_('status_value.description')} />
   </div>
   <div class="card-body">
     <div class="row">
       <div class="col-8 col-md-3">
-        <label for="vo" class="form-label">Vo</label>
+        <label for="vo" class="form-label">
+          {$_('status_value.vo')}
+        </label>
         <input
           type="number"
           bind:value={voValue}
@@ -26,7 +31,9 @@
         />
       </div>
       <div class="col-8 col-md-3">
-        <label for="da" class="form-label">Da</label>
+        <label for="da" class="form-label">
+          {$_('status_value.da')}
+        </label>
         <input
           type="number"
           bind:value={daValue}
@@ -35,7 +42,9 @@
         />
       </div>
       <div class="col-8 col-md-3">
-        <label for="vi" class="form-label">Vi</label>
+        <label for="vi" class="form-label">
+          {$_('status_value.vi')}
+        </label>
         <input
           type="number"
           bind:value={viValue}

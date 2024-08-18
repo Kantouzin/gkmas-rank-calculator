@@ -1,4 +1,5 @@
 <script>
+  import { _ } from 'svelte-i18n';
   import { calculateRankValue, getRank } from '../modules/calculator';
 
   export let targetRankValue;
@@ -13,11 +14,13 @@
 </script>
 
 <div class="card text-bg-light my-2">
-  <div class="card-header">評価</div>
+  <div class="card-header">{$_('rank.title')}</div>
   <div class="card-body">
     <div class="row">
       <div class="col-8 col-md-3">
-        <label for="target-value" class="form-label">目標評価値</label>
+        <label for="target-value" class="form-label">
+          {$_('rank.target_value')}
+        </label>
         <input
           type="number"
           bind:value={targetRankValue}
@@ -27,7 +30,9 @@
         />
       </div>
       <div class="col-8 col-md-3">
-        <label for="result-value" class="form-label">実績評価値</label>
+        <label for="result-value" class="form-label">
+          {$_('rank.result_value')}
+        </label>
         <input
           type="number"
           bind:value={rankValue}

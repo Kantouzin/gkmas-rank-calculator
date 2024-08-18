@@ -1,5 +1,6 @@
 <script>
   import { createEventDispatcher, onMount } from 'svelte';
+  import { _ } from 'svelte-i18n';
   import ranks from '../../json/ranks.json';
 
   let selectedRank = 'A+';
@@ -17,7 +18,9 @@
 
 <div class="card text-bg-light my-2">
   <div class="card-body col-8 col-md-3">
-    <label for="target-rank" class="form-label">目標評価</label>
+    <label for="target-rank" class="form-label">
+      {$_('target_rank.title')}
+    </label>
     <select
       value={selectedRank}
       on:change={handleChange}
