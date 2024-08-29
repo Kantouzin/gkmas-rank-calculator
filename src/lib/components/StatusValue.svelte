@@ -5,9 +5,9 @@
 
   export let voValue, daValue, viValue;
 
-  $: voValue = clamp(voValue, 0, 1500);
-  $: daValue = clamp(daValue, 0, 1500);
-  $: viValue = clamp(viValue, 0, 1500);
+  $: voValue = clamp(voValue, 0, 1800);
+  $: daValue = clamp(daValue, 0, 1800);
+  $: viValue = clamp(viValue, 0, 1800);
 </script>
 
 <div class="card text-bg-light my-2">
