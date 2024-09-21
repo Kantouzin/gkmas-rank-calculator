@@ -17,7 +17,6 @@
   },
   "exam_score": {
     "title": "最終試験",
-    "explanation": "実績ptが大きい場合、実績評価値の計算結果が合わない場合があります。",
     "target_score": "目標pt",
     "score": "実績pt"
   },
