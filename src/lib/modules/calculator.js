@@ -2,9 +2,9 @@ import ranks from '../../json/ranks.json';
 
 const calculateTargetScore = (targetRankValue = 0, voValue = 0, daValue = 0, viValue = 0) => {
   const statusValue = Math.floor(
-    (Math.min(voValue + 30, 1500) +
-      Math.min(daValue + 30, 1500) +
-      Math.min(viValue + 30, 1500)) *
+    (Math.min(voValue + 30, 1800) +
+      Math.min(daValue + 30, 1800) +
+      Math.min(viValue + 30, 1800)) *
     2.3,
   );
   const targetValue = targetRankValue - statusValue - 1700;
@@ -55,9 +55,9 @@ const calculateRankValue = (score, voValue = 0, daValue = 0, viValue = 0) => {
   scoreRankValue = Math.round(scoreRankValue);
 
   const statusRankValue = Math.floor(
-    (Math.min(voValue + 30, 1500) +
-      Math.min(daValue + 30, 1500) +
-      Math.min(viValue + 30, 1500)) *
+    (Math.min(voValue + 30, 1800) +
+      Math.min(daValue + 30, 1800) +
+      Math.min(viValue + 30, 1800)) *
     2.3,
   );
 
