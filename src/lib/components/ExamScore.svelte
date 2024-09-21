@@ -23,7 +23,6 @@
     <span>
       {$_('exam_score.title')}
     </span>
-    <Popover text={$_('exam_score.explanation')} />
   </div>
   <div class="card-body">
     <div class="row">
