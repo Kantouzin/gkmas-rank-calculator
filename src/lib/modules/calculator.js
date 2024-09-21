@@ -39,18 +39,14 @@ const calculateRankValue = (score, voValue = 0, daValue = 0, viValue = 0) => {
     scoreRankValue = score * 0.3;
   } else if (score <= 10000) {
     scoreRankValue = score * 0.15 + 750;
+  } else if (score <= 20000) {
+    scoreRankValue = (score - 10000) * 0.08 + 2250;
+  } else if (score <= 30000) {
+    scoreRankValue = (score - 20000) * 0.04 + 3050;
+  } else if (score <= 40000) {
+    scoreRankValue = (score - 30000) * 0.02 + 3450;
   } else {
-    scoreRankValue = 2250;
-    score -= 10000;
-    let i = 2;
-    while (score > 10000) {
-      scoreRankValue +=
-        (10000 * Math.round((0.3 * 100) / Math.pow(2, i))) / 100;
-      score -= 10000;
-      i++;
-    }
-    scoreRankValue +=
-      (score * Math.round((0.3 * 100) / Math.pow(2, i))) / 100;
+    scoreRankValue = (score - 40000) * 0.01 + 3650;
   }
   scoreRankValue = Math.round(scoreRankValue);
 

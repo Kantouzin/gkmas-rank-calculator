@@ -15,7 +15,7 @@
     viValue,
   );
 
-  $: score = clamp(score, 0, 100000);
+  $: score = clamp(score, 0, 300000);
 </script>
 
 <div class="card text-bg-light my-2">
