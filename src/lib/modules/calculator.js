@@ -1,6 +1,14 @@
 import ranks from '../../json/ranks.json';
 import Big from 'big.js';
 
+/**
+ * 目標ptを計算
+ * @param {number} targetRankValue - 目標評価値
+ * @param {number} voValue - Vo値
+ * @param {number} daValue - Da値
+ * @param {number} viValue - Vi値
+ * @returns {number} - 目標pt
+ */
 const calculateTargetScore = (targetRankValue = 0, voValue = 0, daValue = 0, viValue = 0) => {
   const statusValue = new Big(0)
     .plus(Math.min(voValue + 30, 1800))
@@ -30,6 +38,14 @@ const calculateTargetScore = (targetRankValue = 0, voValue = 0, daValue = 0, viV
   return targetScore.gt(0) ? targetScore.toNumber() : 0;
 };
 
+/**
+ * 実績評価値を計算
+ * @param {number} score - 実績pt
+ * @param {number} voValue - Vo値
+ * @param {number} daValue - Da値
+ * @param {number} viValue - Vil値
+ * @returns {number} - 実績評価値
+ */
 const calculateRankValue = (score, voValue = 0, daValue = 0, viValue = 0) => {
   if (!score) {
     return;
@@ -61,7 +77,12 @@ const calculateRankValue = (score, voValue = 0, daValue = 0, viValue = 0) => {
   return scoreRankValue.plus(statusRankValue).plus(1700).toNumber();
 };
 
-const getRank = (rankValue) => {
+/**
+ * 評価値から評価を取得
+ * @param {number} rankValue - 評価値
+ * @returns {string} - 評価
+ */
+const getRankLabel = (rankValue) => {
   for (let rank of ranks) {
     if (rankValue >= rank.point) {
       return rank.label;
@@ -70,4 +91,14 @@ const getRank = (rankValue) => {
   return '';
 };
 
-export { calculateTargetScore, calculateRankValue, getRank };
+/**
+ * 評価から評価値を取得
+ * @param {string} rankLabel - 評価
+ * @returns {number} - 評価値
+ */
+const getRankValue = (rankLabel) => {
+  const rank = ranks.find((rank) => rank.label === rankLabel);
+  return rank ? rank.point : 0;
+}
+
+export { calculateTargetScore, calculateRankValue, getRankLabel, getRankValue };

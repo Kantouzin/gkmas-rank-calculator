@@ -1,18 +1,19 @@
 <script>
-  import { createEventDispatcher, onMount } from 'svelte';
+  import { onMount } from 'svelte';
   import { _ } from 'svelte-i18n';
   import ranks from '../../json/ranks.json';
+  import { getRankValue } from '../modules/calculator';
+
+  export let targetRankValue;
 
   let selectedRank = 'A+';
 
-  const dispatch = createEventDispatcher();
   const handleChange = (event) => {
-    const rank = ranks.find((rank) => rank.label === event.target.value);
-    dispatch('update', { targetRankValue: rank.point });
+    targetRankValue = getRankValue(event.target.value);
   };
 
   onMount(() => {
-    handleChange({ target: { value: selectedRank } });
+    targetRankValue = getRankValue(selectedRank);
   });
 </script>
 
