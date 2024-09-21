@@ -1,6 +1,6 @@
 <script>
   import { _ } from 'svelte-i18n';
-  import { calculateRankValue, getRank } from '../modules/calculator';
+  import { calculateRankValue, getRankLabel } from '../modules/calculator';
 
   export let targetRankValue;
   export let score;
@@ -10,7 +10,7 @@
   $: rankValue = calculateRankValue(score, voValue, daValue, viValue);
 
   let rank;
-  $: rank = getRank(rankValue);
+  $: rank = getRankLabel(rankValue);
 </script>
 
 <div class="card text-bg-light my-2">
