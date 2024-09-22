@@ -35,7 +35,7 @@ const calculateTargetScore = (targetRankValue = 0, voValue = 0, daValue = 0, viV
   } else {
     targetScore = targetValue.minus(3650).div('0.01').plus(40000);
   }
-  targetScore = targetScore.round(0, Big.roundDown);
+  targetScore = targetScore.round(0, Big.roundHalfUp);
 
   return targetScore.gt(0) ? targetScore.toNumber() : 0;
 };
@@ -81,7 +81,7 @@ const calculateRankValue = (score, voValue = 0, daValue = 0, viValue = 0, status
 };
 
 /**
- * 評価値から評価を取得
+ * 評価値から評価名を取得
  * @param {number} rankValue - 評価値
  * @returns {string} - 評価
  */
@@ -96,11 +96,11 @@ const getRankLabel = (rankValue) => {
 
 /**
  * 評価から評価値を取得
- * @param {string} rankLabel - 評価
+ * @param {number} rankId - 評価
  * @returns {number} - 評価値
  */
-const getRankValue = (rankLabel) => {
-  const rank = ranks.find((rank) => rank.label === rankLabel);
+const getRankValue = (rankId) => {
+  const rank = ranks.find((rank) => rank.id === rankId);
   return rank ? rank.point : 0;
 }
 

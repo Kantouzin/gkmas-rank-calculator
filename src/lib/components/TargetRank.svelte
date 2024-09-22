@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { _ } from 'svelte-i18n';
+  import initial from '../../json/initial.json';
   import ranks from '../../json/ranks.json';
   import scenarios from '../../json/scenarios.json';
   import { getRankValue, getStatusLimit } from '../modules/calculator';
@@ -8,11 +9,8 @@
   export let targetRankValue;
   export let statusLimit;
 
-  let selectedRank = 'A+';
-  let selectedScenario = 1;
-
   const handleChangeRank = (event) => {
-    targetRankValue = getRankValue(event.target.value);
+    targetRankValue = getRankValue(Number(event.target.value));
   };
 
   const handleChangeStatusLimit = (event) => {
@@ -20,8 +18,8 @@
   };
 
   onMount(() => {
-    targetRankValue = getRankValue(selectedRank);
-    statusLimit = getStatusLimit(selectedScenario);
+    targetRankValue = getRankValue(initial.targetRankId);
+    statusLimit = getStatusLimit(initial.scenarioId);
   });
 </script>
 
@@ -33,13 +31,13 @@
           {$_('target_rank.target_rank')}
         </label>
         <select
-          value={selectedRank}
+          value={initial.targetRankId}
           on:change={handleChangeRank}
           id="target-rank"
           class="form-select"
         >
           {#each ranks as rank}
-            <option value={rank.label}>
+            <option value={rank.id}>
               {rank.label}
             </option>
           {/each}
@@ -50,7 +48,7 @@
           >{$_('target_rank.scenario')}</label
         >
         <select
-          value={selectedScenario}
+          value={initial.scenarioId}
           on:change={handleChangeStatusLimit}
           id="scenario"
           class="form-select"
