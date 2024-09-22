@@ -5,9 +5,16 @@
   export let targetRankValue;
   export let score;
   export let voValue, daValue, viValue;
+  export let statusLimit;
 
   let rankValue;
-  $: rankValue = calculateRankValue(score, voValue, daValue, viValue);
+  $: rankValue = calculateRankValue(
+    score,
+    voValue,
+    daValue,
+    viValue,
+    statusLimit,
+  );
 
   let rank;
   $: rank = getRankLabel(rankValue);

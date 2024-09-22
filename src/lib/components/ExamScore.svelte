@@ -4,6 +4,7 @@
   import { clamp } from '../modules/utils';
 
   export let targetRankValue, voValue, daValue, viValue;
+  export let statusLimit;
   export let score;
 
   let targetScore;
@@ -12,6 +13,7 @@
     voValue,
     daValue,
     viValue,
+    statusLimit,
   );
 
   $: score = clamp(score, 0, 300000);
