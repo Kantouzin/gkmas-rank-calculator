@@ -35,7 +35,7 @@ const calculateTargetScore = (targetRankValue = 0, voValue = 0, daValue = 0, viV
   } else {
     targetScore = targetValue.minus(3650).div('0.01').plus(40000);
   }
-  targetScore = targetScore.round(0, Big.roundDown);
+  targetScore = targetScore.round(0, Big.roundHalfUp);
 
   return targetScore.gt(0) ? targetScore.toNumber() : 0;
 };
