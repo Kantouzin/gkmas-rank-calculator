@@ -1,4 +1,5 @@
 import ranks from '../../json/ranks.json';
+import scenarios from '../../json/scenarios.json';
 import Big from 'big.js';
 
 /**
@@ -7,13 +8,14 @@ import Big from 'big.js';
  * @param {number} voValue - Vo値
  * @param {number} daValue - Da値
  * @param {number} viValue - Vi値
+ * @param {number} statusLimit - ステータス上限
  * @returns {number} - 目標pt
  */
-const calculateTargetScore = (targetRankValue = 0, voValue = 0, daValue = 0, viValue = 0) => {
+const calculateTargetScore = (targetRankValue = 0, voValue = 0, daValue = 0, viValue = 0, statusLimit = 0) => {
   const statusValue = new Big(0)
-    .plus(Math.min(voValue + 30, 1800))
-    .plus(Math.min(daValue + 30, 1800))
-    .plus(Math.min(viValue + 30, 1800))
+    .plus(Math.min(voValue + 30, statusLimit))
+    .plus(Math.min(daValue + 30, statusLimit))
+    .plus(Math.min(viValue + 30, statusLimit))
     .times('2.3')
     .round(0, Big.roundDown);
 
@@ -44,9 +46,10 @@ const calculateTargetScore = (targetRankValue = 0, voValue = 0, daValue = 0, viV
  * @param {number} voValue - Vo値
  * @param {number} daValue - Da値
  * @param {number} viValue - Vil値
+ * @param {number} statusLimit - ステータス上限
  * @returns {number} - 実績評価値
  */
-const calculateRankValue = (score, voValue = 0, daValue = 0, viValue = 0) => {
+const calculateRankValue = (score, voValue = 0, daValue = 0, viValue = 0, statusLimit = 0) => {
   if (!score) {
     return;
   }
@@ -68,9 +71,9 @@ const calculateRankValue = (score, voValue = 0, daValue = 0, viValue = 0) => {
   scoreRankValue = scoreRankValue.round(0, Big.roundDown);
 
   const statusRankValue = new Big(0)
-    .plus(Math.min(voValue + 30, 1800))
-    .plus(Math.min(daValue + 30, 1800))
-    .plus(Math.min(viValue + 30, 1800))
+    .plus(Math.min(voValue + 30, statusLimit))
+    .plus(Math.min(daValue + 30, statusLimit))
+    .plus(Math.min(viValue + 30, statusLimit))
     .times('2.3')
     .round(0, Big.roundDown);
 
@@ -101,4 +104,14 @@ const getRankValue = (rankLabel) => {
   return rank ? rank.point : 0;
 }
 
-export { calculateTargetScore, calculateRankValue, getRankLabel, getRankValue };
+/**
+ * シナリオからステータス上限を取得
+ * @param {number} scenarioId シナリオID
+ * @returns {number} ステータス上限
+ */
+const getStatusLimit = (scenarioId) => {
+  const scenario = scenarios.find((scenario) => scenario.id === scenarioId);
+  return scenario ? scenario.statusLimit : 0;
+}
+
+export { calculateTargetScore, calculateRankValue, getRankLabel, getRankValue, getStatusLimit };

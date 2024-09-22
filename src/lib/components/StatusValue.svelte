@@ -4,10 +4,11 @@
   import Popover from './Popover.svelte';
 
   export let voValue, daValue, viValue;
+  export let statusLimit;
 
-  $: voValue = clamp(voValue, 0, 1800);
-  $: daValue = clamp(daValue, 0, 1800);
-  $: viValue = clamp(viValue, 0, 1800);
+  $: voValue = clamp(voValue, 0, statusLimit);
+  $: daValue = clamp(daValue, 0, statusLimit);
+  $: viValue = clamp(viValue, 0, statusLimit);
 </script>
 
 <div class="card text-bg-light my-2">
