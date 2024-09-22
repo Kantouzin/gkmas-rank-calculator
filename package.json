@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "prebuild": "node scripts/update.js",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -14,6 +15,7 @@
     "big.js": "^6.2.2",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "date-utils": "^1.2.21",
     "dotenv": "^16.4.5",
     "svelte": "^4.2.12",
     "svelte-i18n": "^4.0.0",
