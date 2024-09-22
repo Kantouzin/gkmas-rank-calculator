@@ -6,7 +6,8 @@
     "author": "Kantouzin"
   },
   "target_rank": {
-    "title": "目標評価"
+    "target_rank": "目標評価",
+    "scenario": "シナリオ"
   },
   "status_value": {
     "title": "パラメータ",
