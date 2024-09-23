@@ -58,7 +58,7 @@ const calculateRankValue = (score, voValue = 0, daValue = 0, viValue = 0, status
   if (score <= 5000) {
     scoreRankValue = scoreRankValue.plus(score).times('0.3');
   } else if (score <= 10000) {
-    scoreRankValue = scoreRankValue.plus(score).times('0.15').plus(1500);
+    scoreRankValue = scoreRankValue.plus(score).minus(5000).times('0.15').plus(1500);
   } else if (score <= 20000) {
     scoreRankValue = scoreRankValue.plus(score).minus(10000).times('0.08').plus(2250);
   } else if (score <= 30000) {
