@@ -1,31 +1,36 @@
 [
   {
     "id": 1,
+    "label": "SS",
+    "point": 16000
+  },
+  {
+    "id": 2,
     "label": "S+",
     "point": 14500
   },
   {
-    "id": 2,
+    "id": 3,
     "label": "S",
     "point": 13000
   },
   {
-    "id": 3,
+    "id": 4,
     "label": "A+",
     "point": 11500
   },
   {
-    "id": 4,
+    "id": 5,
     "label": "A",
     "point": 10000
   },
   {
-    "id": 5,
+    "id": 6,
     "label": "B+",
     "point": 8000
   },
   {
-    "id": 6,
+    "id": 7,
     "label": "B",
     "point": 6000
   }
