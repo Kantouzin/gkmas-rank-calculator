@@ -8,5 +8,10 @@
     "id": 2,
     "label": "定期公演『初』 - マスター",
     "statusLimit": 1800
+  },
+  {
+    "id": 3,
+    "label": "NEXT IDOL AUDITION",
+    "statusLimit": 2000
   }
 ]
