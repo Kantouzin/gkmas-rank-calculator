@@ -1,5 +1,6 @@
 <script>
   import { _ } from 'svelte-i18n';
+  import { scoreLimit } from '../../json/initial.json';
   import { calculateTargetScore } from '../modules/calculator';
   import { clamp } from '../modules/utils';
 
@@ -16,7 +17,7 @@
     statusLimit,
   );
 
-  $: score = clamp(score, 0, 300000);
+  $: score = clamp(score, 0, scoreLimit);
 </script>
 
 <div class="card text-bg-light my-2">

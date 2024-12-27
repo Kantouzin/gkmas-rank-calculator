@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { _ } from 'svelte-i18n';
-  import initial from '../../json/initial.json';
+  import { scenarioId, targetRankId } from '../../json/initial.json';
   import ranks from '../../json/ranks.json';
   import scenarios from '../../json/scenarios.json';
   import { getRankValue, getStatusLimit } from '../modules/calculator';
@@ -18,8 +18,8 @@
   };
 
   onMount(() => {
-    targetRankValue = getRankValue(initial.targetRankId);
-    statusLimit = getStatusLimit(initial.scenarioId);
+    targetRankValue = getRankValue(targetRankId);
+    statusLimit = getStatusLimit(scenarioId);
   });
 </script>
 
@@ -31,7 +31,7 @@
           {$_('target_rank.target_rank')}
         </label>
         <select
-          value={initial.targetRankId}
+          value={targetRankId}
           on:change={handleChangeRank}
           id="target-rank"
           class="form-select"
@@ -48,7 +48,7 @@
           >{$_('target_rank.scenario')}</label
         >
         <select
-          value={initial.scenarioId}
+          value={scenarioId}
           on:change={handleChangeStatusLimit}
           id="scenario"
           class="form-select"
