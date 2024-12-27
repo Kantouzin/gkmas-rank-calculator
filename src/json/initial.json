@@ -1,4 +1,5 @@
 {
   "targetRankId": 2,
-  "scenarioId": 3
+  "scenarioId": 3,
+  "scoreLimit": 500000
 }
